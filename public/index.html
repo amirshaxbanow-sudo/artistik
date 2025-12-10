@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Шахбанов Амир | Художник • Фотограф • Арт-дизайнер</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
+  <style>
+    :root {
+      --primary: #7f3dff;
+      --primary-dark: #5d11ff;
+      --primary-light: #9d6aff;
+      --secondary: #ff6b8b;
+      --dark: #1a1a2e;
+      --light: #f6f1ff;
+      --gray: #e0e0ff;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(127, 61, 255, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Навигация */
+    .navbar {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 15px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo i {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      background-color: var(--gray);
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+      background-color: rgba(127, 61, 255, 0.1);
+    }
+
+    /* Герой секция */
+    .hero {
+      padding: 150px 0 80px;
+      background: linear-gradient(135deg, #7f3dff 0%, #5d11ff 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-size: cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.2);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Секции */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--primary);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+
+    /* Обо мне */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 400px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.5s;
+      object-fit: cover;
+    }
+
+    .profile-img:hover {
+      transform: translateY(-10px);
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Услуги */
+    .services {
+      background-color: var(--gray);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    .service-card p {
+      margin-bottom: 25px;
+      color: #666;
+    }
+
+    .service-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .service-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .service-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Портфолио */
+    .portfolio-filter {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--white);
+      border: 2px solid var(--gray);
+      padding: 10px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      height: 300px;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 20px;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      transform: translateY(0);
+    }
+
+    /* Контакты */
+    .contact-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+
+    .contact-details {
+      margin-bottom: 40px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-icon {
+      background: rgba(255,255,255,0.2);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 1.2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-link {
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .social-link:hover {
+      background: var(--secondary);
+    }
+
+    /* Кнопка входа */
+    #loginBtn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #loginBtn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Форма */
+    .contact-form {
+      background: var(--white);
+      padding: 40px;
+      border-radius: 20px;
+      color: var(--dark);
+      display: none;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid var(--gray);
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .status {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Футер */
+    .footer {
+      background: var(--dark);
+      color: white;
+      padding: 50px 0 30px;
+      text-align: center;
+    }
+
+    .footer-content {
+      margin-bottom: 30px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 992px) {
+      .about-content, .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .services-grid, .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .services-grid, .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section {
+        padding: 50px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Навигация -->
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+      <i class="fas fa-palette"></i>
+      <span> Ахмедова Написат М </span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Главная</a></li>
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#portfolio">Портфолио</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <button id="loginBtn">Клиентский доступ</button>
+  </div>
+</nav>
+
+<!-- Герой секция -->
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <h1>Ахмедова Написат М.</h1>
+    <div class="hero-subtitle">Художник • Фотограф • Арт-дизайнер</div>
+    <div class="hero-tags">
+      <div class="tag">Креативное видение</div>
+      <div class="tag">Профессионализм</div>
+      <div class="tag">Индивидуальный подход</div>
+    </div>
+    <p>Создаю уникальные визуальные решения, которые рассказывают вашу историю через искусство, фотографию и дизайн.</p>
+  </div>
+</section>
+
+<!-- Обо мне -->
+<section class="section" id="about">
+  <div class="container">
+    <h2 class="section-title">Обо мне</h2>
+    <div class="about-content">
+      <div>
+        <!-- Заменено на локальный файл -->
+        <img src="photos/avatar.jpg" alt="Ахмедова Написат М" class="profile-img">
+      </div>
+      <div class="about-text">
+        <h3>Профессионал в мире визуального искусства</h3>
+        <p>Более 8 лет я создаю уникальные визуальные произведения, которые соединяют в себе художественное видение, техническое мастерство и глубокое понимание эстетики.</p>
+        <p>Мой подход к работе основан на внимании к деталям, понимании потребностей клиента и стремлении к совершенству в каждой детали. Я верю, что настоящее искусство рождается на стыке таланта, страсти и упорного труда.</p>
+        <p>Каждый проект для меня — это новая история, которую нужно рассказать через визуальный язык. Будь то портретная фотосессия, цифровая иллюстрация или комплексный арт-дизайн, я вкладываю душу в каждый этап работы.</p>
+        
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Завершенных проектов</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">8+</div>
+            <div class="stat-label">Лет опыта</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Довольных клиентов</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Услуги -->
+<section class="section services" id="services">
+  <div class="container">
+    <h2 class="section-title">Мои услуги</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+        <h3>Художественные работы</h3>
+        <p>Создание уникальных картин, иллюстраций и цифрового арта в различных стилях и техниках.</p>
+        <div class="service-price">от 5 000 ₽</div>
+        <button class="service-btn" onclick="openContactForm('Художественная работа')">Заказать</button>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-camera"></i>
+        </div>
+        <h3>Фотосессии</h3>
+        <p>Профессиональная фотосъемка: портреты, предметная съемка, репортажи и художественная фотография.</p>
+        <div class="service-price">от 8 000 ₽</div>
+        <button class="service-btn" onclick="openContactForm('Фотосессия')">Заказать</button>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <h3>Арт-дизайн</h3>
+        <p>Разработка креативных дизайн-концепций, айдентики, иллюстраций и визуального контента.</p>
+        <div class="service-price">от 10 000 ₽</div>
+        <button class="service-btn" onclick="openContactForm('Арт-дизайн')">Заказать</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Портфолио -->
+<section class="section" id="portfolio">
+  <div class="container">
+    <h2 class="section-title">Моё портфолио</h2>
+    <div class="portfolio-filter">
+      <button class="filter-btn active" data-filter="all">Все работы</button>
+      <button class="filter-btn" data-filter="art">Художественные</button>
+      <!-- Убраны кнопки фильтрации для фото и дизайна, так как все работы художественные -->
+    </div>
+    <div class="portfolio-grid">
+      <!-- Работа 1 -->
+      <div class="portfolio-item" data-category="art">
+        <img src="photos/photo1.jpg" alt="Художественная работа 1" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>"Абстрактная композиция"</h4>
+          <p>Холст, акрил, 60×80 см, 2023</p>
+        </div>
+      </div>
+      
+      <!-- Работа 2 -->
+      <div class="portfolio-item" data-category="art">
+        <img src="photos/photo2.jpg" alt="Художественная работа 2" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>"Градиент настроения"</h4>
+          <p>Смешанная техника, 50×70 см</p>
+        </div>
+      </div>
+      
+      <!-- Работа 3 -->
+      <div class="portfolio-item" data-category="art">
+        <img src="photos/photo3.jpg" alt="Художественная работа 3" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>"Городские ритмы"</h4>
+          <p>Цифровая живопись, 2023</p>
+        </div>
+      </div>
+      
+      <!-- Работа 4 -->
+      <div class="portfolio-item" data-category="art">
+        <img src="photos/photo4.jpg" alt="Художественная работа 4" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>"Текстура времени"</h4>
+          <p>Холст, масло, 70×90 см</p>
+        </div>
+      </div>
+      
+      <!-- Работа 5 -->
+      <div class="portfolio-item" data-category="art">
+        <img src="photos/photo5.jpg" alt="Художественная работа 5" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>"Цветовая гармония"</h4>
+          <p>Акварель, 40×60 см, 2022</p>
+        </div>
+      </div>
+      
+      <!-- Работа 6 -->
+      <div class="portfolio-item" data-category="art">
+        <img src="photos/photo6.jpg" alt="Художественная работа 6" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>"Линии и формы"</h4>
+          <p>Геометрическая абстракция, 2023</p>
+        </div>
+      </div>
+
+      <!-- Работа 7 -->
+      <div class="portfolio-item" data-category="art">
+        <img src="photos/photo7.jpg" alt="Художественная работа 7" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>"Эмоциональный пейзаж"</h4>
+          <p>Импрессионизм, холст, 2023</p>
+        </div>
+      </div>
+      
+      <!-- Работа 8 -->
+      <div class="portfolio-item" data-category="art">
+        <img src="photos/photo8.jpg" alt="Художественная работа 8" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>"Современная классика"</h4>
+          <p>Смешанная техника, 60×80 см</p>
+        </div>
+      </div>
+      
+      <!-- Дублирование для 9-й работы (если нужно 9 работ) -->
+      <div class="portfolio-item" data-category="art">
+        <img src="photos/photo1.jpg" alt="Художественная работа 9" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>"Эксперимент с цветом"</h4>
+          <p>Серия "Новые горизонты", 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Контакты -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <h2 class="section-title" style="color: white;">Связаться со мной</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Давайте создадим что-то особенное вместе!</h3>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <strong>Email:</strong><br>
+              shaxbanovamir@gmail.com
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <strong>Телефон:</strong><br>
+              +7 (996) 741-93-21
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <strong>Работаю:</strong><br>
+              По всему миру (удаленно) и в Москве
+            </div>
+          </div>
+        </div>
+        <h4>Социальные сети</h4>
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-behance"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-telegram"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Форма обратной связи -->
+      <div class="contact-form" id="contactSection">
+        <h3>Форма заказа</h3>
+        <form id="contactForm" action="https://formspree.io/f/xyzrdkkj" method="POST">
+          <div class="form-group">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Иван Иванов" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Ваш email</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="example@mail.com" required>
+          </div>
+          <div class="form-group">
+            <label for="service">Услуга</label>
+            <input type="text" id="service" name="service" class="form-control" placeholder="Художественная работа" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Опишите ваш проект</label>
+            <textarea id="message" name="message" class="form-control" placeholder="Расскажите о вашей идее, предпочтениях и сроках..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Отправить заявку</button>
+          <div class="status" id="status"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Футер -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+        <i class="fas fa-palette"></i>
+        <span>Ахмедова Написат М</span>
+      </div>
+      <p>Художник • Фотограф • Арт-дизайнер</p>
+    </div>
+    <div class="footer-links">
+      <a href="#home">Главная</a>
+      <a href="#about">Обо мне</a>
+      <a href="#services">Услуги</a>
+      <a href="#portfolio">Портфолио</a>
+      <a href="#contact">Контакты</a>
+    </div>
+    <div class="copyright">
+      © 2023 Ахмедова Написат М. Все права защищены.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Плавная прокрутка для навигации
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if(targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if(targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        
+        // Обновление активного пункта меню
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.classList.remove('active');
+        });
+        this.classList.add('active');
+      }
+    });
+  });
+
+  // Фильтрация портфолио
+  document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+      
+      // Обновление активной кнопки
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      this.classList.add('active');
+      
+      // Фильтрация элементов
+      document.querySelectorAll('.portfolio-item').forEach(item => {
+        if(filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // GOOGLE LOGIN
+  function handleCredentialResponse(response) {
+    document.getElementById("loginBtn").style.display = "none";
+    document.getElementById("contactSection").style.display = "block";
+    alert("Добро пожаловать в клиентскую зону!");
+  }
+
+  document.getElementById("loginBtn").addEventListener("click", () => {
+    google.accounts.id.initialize({
+      client_id: "258425274420-dkue6rs82a6vp7mqlv4htpk92ce8nbte.apps.googleusercontent.com",
+      callback: handleCredentialResponse
+    });
+    google.accounts.id.prompt();
+  });
+
+  // FORM SEND
+  const form = document.getElementById('contactForm');
+  const statusDiv = document.getElementById('status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    });
+
+    if (response.ok) {
+      statusDiv.innerText = "Спасибо! Ваша заявка отправлена. Я свяжусь с вами в ближайшее время.";
+      statusDiv.style.color = "green";
+      form.reset();
+      setTimeout(() => {
+        statusDiv.innerText = "";
+      }, 5000);
+    } else {
+      statusDiv.innerText = "Ошибка отправки. Пожалуйста, попробуйте еще раз.";
+      statusDiv.style.color = "red";
+    }
+  });
+
+  // Функция для открытия формы с предзаполненной услугой
+  function openContactForm(service) {
+    document.getElementById('service').value = service;
+    document.getElementById('contactSection').style.display = 'block';
+    
+    // Прокрутка к форме
+    document.getElementById('contact').scrollIntoView({
+      behavior: 'smooth'
+    });
+    
+    // Фокус на поле имени
+    setTimeout(() => {
+      document.getElementById('name').focus();
+    }, 500);
+  }
+
+  // Изменение активного пункта меню при прокрутке
+  window.addEventListener('scroll', function() {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if(scrollY >= (sectionTop - 100)) {
+        current = section.getAttribute('id');
+      }
+    });
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.classList.remove('active');
+      if(link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // Инициализация активного состояния меню при загрузке
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.nav-links a[href="#home"]').classList.add('active');
+    
+    // Проверка загрузки картинок
+    checkImages();
+  });
+
+  // Функция для проверки загрузки картинок
+  function checkImages() {
+    const images = document.querySelectorAll('img');
+    let loaded = 0;
+    let failed = 0;
+    
+    images.forEach(img => {
+      img.onload = () => {
+        loaded++;
+        console.log(`✓ Загружено: ${img.src}`);
+      };
+      img.onerror = () => {
+        failed++;
+        console.error(`✗ Ошибка загрузки: ${img.src}`);
+        // Можно показать placeholder если картинка не загрузилась
+        // img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%237f3dff"/><text x="200" y="150" text-anchor="middle" fill="white" font-family="Arial" font-size="20">Изображение загружается...</text></svg>';
+      };
+    });
+    
+    setTimeout(() => {
+      console.log(`Итог: ${loaded} загружено, ${failed} ошибок`);
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>
